@@ -4,6 +4,7 @@ run-name: Despliegue en ${{ github.ref_name }} por ${{ github.actor }}
 on:
   push:
     branches:
+      - main
       - develop
       - production
     paths-ignore:
