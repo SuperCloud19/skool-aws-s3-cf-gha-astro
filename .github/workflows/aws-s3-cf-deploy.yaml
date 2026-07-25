@@ -47,7 +47,8 @@ jobs:
           #aws-access-key: {{ secrets.AWS_SECRET_ACCESS_KEY}}
 
           role-to-assume: arn:aws:iam::654654182107:role/github-actions-role
-          aws-region: us-east-1 # Sustituye por la región de tu infraestructura
+          #aws-region: us-east-1 # Sustituye por la región de tu infraestructura
+          aws-region: Global # Sustituye por la región de tu infraestructura
 
       # 6. Transferir la compilación directamente al bucket de S3
       - name: Desplegar a S3
