@@ -19,7 +19,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     # github.ref_name == 'main' && 'production' || 'develop'
-    environment: ${{ github.ref_name }}
+    #environment: ${{ github.ref_name }}
     steps:
       # 1. Descargar el código fuente
       - name: Checkout de código
@@ -46,7 +46,7 @@ jobs:
           #aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           #aws-access-key: {{ secrets.AWS_SECRET_ACCESS_KEY}}
                           
-          role-to-assume: arn:aws:iam::339712940577:role/github-actions-role
+          role-to-assume: arn:aws:iam::611925743092:role/github-actions-role
           aws-region: us-east-1 # Sustituye por la región de tu infraestructura
           
 
