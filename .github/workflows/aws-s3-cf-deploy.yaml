@@ -18,8 +18,8 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # github.ref_name == 'main' && 'production' || 'develop'
-    #environment: ${{ github.ref_name }}
+    #github.ref_name == 'main' && 'production' || 'develop'
+    environment: ${{ github.ref_name }}
     steps:
       # 1. Descargar el código fuente
       - name: Checkout de código
@@ -52,10 +52,10 @@ jobs:
 
       # 6. Transferir la compilación directamente al bucket de S3
       - name: Desplegar a S3
-        run: aws s3 sync ./dist/ s3://aws-s3-cf-actions-static-website-dev   --delete
-        #run: aws s3 sync ./dist/ s3://${{ vars.S3_BUCKET_NAME }} --delete
+        #run: aws s3 sync ./dist/ s3://aws-s3-cf-actions-static-website-dev   --delete
+        run: aws s3 sync ./dist/ s3://${{ vars.S3_BUCKET_NAME }} --delete
 
       # 7. Invalidar la caché de CloudFront
       - name: Invalidar caché de CloudFront
-        run: aws cloudfront create-invalidation --distribution-id E163IPFQ7ZN5EV --paths "/*"
+        #run: aws cloudfront create-invalidation --distribution-id E163IPFQ7ZN5EV --paths "/*"
         #run: aws cloudfront create-invalidation --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
